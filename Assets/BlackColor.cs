@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BlackColor : MonoBehaviour {
 
-	public float speed = 5f;
-	public float maxDistance = 1f;
+	public float speed = 7f;
+	public float maxDistance = 3f;
 	public Camera mainCamera ;
 	private Vector3 _origin;
 	// Use this for initialization
@@ -25,7 +25,7 @@ public class BlackColor : MonoBehaviour {
 
 		//Linearly interpolate from current to mouse's position
 		transform.position = Vector3.Lerp(transform.position, _origin + originToMouse, speed * Time.deltaTime);
-		Debug.Log (transform.position);
+		//Debug.Log (transform.position);
 
 		//Link to move it for fixed tim
 		//http://answers.unity3d.com/questions/34884/move-a-gameobject-for-certain-amount-of-time-and-t.html
