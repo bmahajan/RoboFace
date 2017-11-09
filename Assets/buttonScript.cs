@@ -4,29 +4,36 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class buttonScript : MonoBehaviour, IPointerDownHandler {
-
-
+public class buttonScript : MonoBehaviour {
+	//, IPointerDownHandler
+	private bool[] mousePressed = { false, false, false };
 	void Start()
 	{
-		addPhysicsRaycaster();
+		
+
+	}
+	private void clickFunction()
+	{
+		Debug.Log ("in click function\n");
+		if (mousePressed [0] || mousePressed [1] || mousePressed [2])
+		{
+			Debug.Log ("clicked");
+			mousePressed[0] = false;
+			mousePressed [1] = false;
+			mousePressed [2] = false;
+		}
+		return;
 	}
 
-	void addPhysicsRaycaster()
-	{
-		PhysicsRaycaster physicsRaycaster = GameObject.FindObjectOfType<PhysicsRaycaster>();
-		if (physicsRaycaster == null)
-		{
-			Camera.main.gameObject.AddComponent<PhysicsRaycaster>();
-			Debug.Log ("Added ray Caster");
-		}
-	}
 	void Update()
 	{
-		Debug.Log ("update");
+		Debug.Log ("update called");
+		mousePressed[0] = Input.GetMouseButtonDown (0);
+		mousePressed [1] = Input.GetMouseButtonDown (1);
+		mousePressed [2] = Input.GetMouseButtonDown (2);
+		clickFunction ();
 	}
-	public void OnPointerDown(PointerEventData eventData)
-	{
-		Debug.Log ("Clciked " + eventData.pointerCurrentRaycast.gameObject.name);
-	}
+
+
+
 }
