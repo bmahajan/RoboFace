@@ -3,7 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - SurvivalGuide
+  - Flint
+  - Jacket
+  - Gun
+  - Cookies
+  - Rope
+  - Bottle
+  - Knife
+  - Hat
+  - Tent
+  - Button
+  - Mouth
+  - Light
   layers:
   - Default
   - TransparentFX
